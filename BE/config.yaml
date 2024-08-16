@@ -1,0 +1,11 @@
+app:
+  name: "todolist"
+  port: 8080
+  version: "version-localhost"
+  environment: "dev"
+  host: "localhost:8080"
+  path: ""
+  isSwagger: true
+mongodb:
+  connection: "mongodb://localhost:27017/"
+  database: "todolist"

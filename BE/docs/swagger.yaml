@@ -1,0 +1,55 @@
+definitions:
+  healthCheck.GetAliveResponse:
+    properties:
+      api:
+        type: string
+      environment:
+        type: string
+      version:
+        type: string
+    type: object
+  httpResponse.HttpResponse:
+    properties:
+      code:
+        type: string
+      data: {}
+      massage:
+        type: string
+      total:
+        type: integer
+    type: object
+info:
+  contact: {}
+paths:
+  /api/health-check:
+    get:
+      consumes:
+      - application/json
+      description: check alive api
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/healthCheck.GetAliveResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httpResponse.HttpResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/httpResponse.HttpResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httpResponse.HttpResponse'
+      tags:
+      - healthCheck
+securityDefinitions:
+  Bearer:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
